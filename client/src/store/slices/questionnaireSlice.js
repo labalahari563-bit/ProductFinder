@@ -29,11 +29,12 @@ export const submitAnswer = createAsyncThunk(
       console.log(`Total tags: ${userTags.length}`)
       console.log('Matched products:', products.map((p) => ({
         name: p.name,
+        weightedScore: p.weightedScore,
         matchScore: p.matchScore,
         matchedTags: p.matchedTags,
       })))
       if (products.length > 0) {
-        console.log(`Best match: "${products[0].name}" with ${products[0].matchScore} matching tags:`, products[0].matchedTags)
+        console.log(`Best match: "${products[0].name}" — weighted score: ${products[0].weightedScore}, ${products[0].matchScore} tags matched:`, products[0].matchedTags)
       }
 
       return {
